@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="es-AR">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<style>
+    * { transition: all 0.6s 0s; }
+    @keyframes huerotator1 {0% {filter: hue-rotate(0deg);}100% {filter: hue-rotate(360deg);}}
+    .huerotator { animation: huerotator1 10s linear 1s infinite normal;}
+    .blurin {animation:ablurin 0.6s;}@keyframes ablurin{from{filter:blur(100px);} to{filter:blur(0px);}}
+    @keyframes kfantit{from{filter:blur(100px); transform: scale(1.5);} to{filter:blur(0px); transform: scale(1);}}
+    .opacity-in{animation:opac-in 0.8s;}@keyframes opac-in{0%{opacity:0.1} 100%{opacity:1;}}
+    .animtitle {
+        animation: kfantit 0.6s,huerotator1 10s linear 1s infinite normal;
+        height: 232px;
+        background: url(assets/title.png) center top no-repeat;
+    }
+    .hidden {display: none; }
+    body {
+        margin: 0;
+        background-color: #001;
+        color:#FFF;
+        text-align: center;
+        overflow-x: hidden;
+        font-family: sans-serif;
+    }
+
+    #rmk{ 
+        color:#f5deb3;
+        font-family: verdana;
+        font-size: .9em;
+        margin-bottom: 4em;
+    }
+    #rmk i {
+        color: #ecbc6a;
+        font-weight: bold;
+    }
+    #container { 
+        /* background-image: url(assets/runes2.png);  */
+        max-width: 1300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .yblock { margin-bottom: 1em; }    
+    .yblock:hover .ytitle {
+        color: #d28f17;
+    }
+    .ytitle {
+        font-size: 2em;
+        font-family: fantasy;
+        filter: drop-shadow(5px 4px 2px #000F) drop-shadow(0px 0px 10px #08F8);
+        letter-spacing: 2px;
+        margin-bottom: .15em;
+    }
+    .p {
+        text-align: center;
+        display: inline-block;
+        margin: 1em;
+    }
+    .p:hover { transform: scale(1.05); }  
+    a div {
+        width: 220px;
+    } 
+    a.p {
+        text-decoration: none;
+        color: yellow;
+        font-family: system-ui;
+        font-weight: 500;
+        font-size: 1.3rem;
+        /* max-width: 190px; */
+        animation:fwidth-in 2s;
+        animation-fill-mode: forwards;
+        display: inline-flex;
+        align-items: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    @keyframes fwidth-in{0%{max-width: 10px;} 100%{max-width: 195px;}}
+    a.p:hover div:nth-child(2) {
+        text-decoration: underline;
+        filter: drop-shadow(0px 4px 6px #4999);
+        color: white;
+    }
+    /* TODOS LOS DIVS MENOS EL 1º */
+    .p div ~ div {
+        color: white;
+        font-size: 0.8rem;
+        /* text-decoration: none !important; */
+    }
+
+    .p img {
+        box-shadow: 0 0 12px -2px #243d85;
+        border: 1px solid #002f65;
+        width: 194px;
+        height: 285px;
+    }
+    .p:hover img {
+        box-shadow: 0 0 18px 0px #1f2fff;
+        border: 1px solid #485fe9;
+    }
+    ::-webkit-scrollbar-thumb {background: linear-gradient(to bottom,#00BCFF,#007AFF);}
+    ::-webkit-scrollbar {height: .7rem;}
+    ::-webkit-scrollbar-track {background-color: #1e2747;}
+    #bkg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        background-color: #000;
+        background-image: url(assets/t1.jpg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        filter: brightness(0.1) hue-rotate(339deg) saturate(2);
+        filter: brightness(0.1);
+
+    }    
+    #tot {
+        font-family: monospace;
+        font-size: 0.9rem;
+        text-align: right;
+        margin-bottom: 5rem;
+        color: #6495ed;
+        padding-right: 1rem;
+    }
+    @keyframes g7-spin{0%{transform:rotate(0deg);}100%{transform:rotate(359deg);}}
+    #loading:after {
+        animation: g7-spin .4s infinite linear;
+        border-color: #d9d9d9 grey grey #d9d9d9;
+        border-radius: 50%;
+        border-style: solid;
+        border-width: 3px;
+        top: 5em;
+        box-sizing: border-box;
+        content: "";
+        height: 35px;
+        margin: auto;
+        position: absolute;
+        width: 35px;
+    }
+    
+</style>
+
+<script>
+function addm(){
+var db=[
+"2021|ESCAPE ROOM 2|tt9844522|escaperoom2",
+"2021|Duna|tt1160419",
+"2021|Nadie|tt7888964",
+"2021|The Tomorrow War|tt9777666|tomorrowwar",
+"2020|BOSS LEVEL|tt7638348|bosslevel",
+"2020|THE NEW MUTANTS|tt4682266|thenewmutants",
+"2020|Bloodshot|tt1634106",
+"2020|Love and Monsters|tt2222042|loveandmonsters",
+"2020|Cosmoball|tt7176054",
+"2019|DOCTOR SUEÑO|tt5606664|doctorsleep|(El resplandor 2)",
+"2019|ESCAPE ROOM|tt5886046|escaperoom",
+"2019|ERASE UNA VEZ EN HOLLYWOOD|tt7131622|eraseunavezh",
+"2019|FORD VS FERRARI|tt1950186|fordvsferrari",
+"2019|Shazam!|tt0448115|shazam",
+"2018|LA MALDICION DE LA CASA WINCHESTER|tt1072748|lamaldicionwinchester",
+"2018|READY PLAYER ONE|tt1677720|readyplayerone",
+"2018|UPGRADE|tt6499752|upgrade",
+"2018|T-34|tt8820590|t34",
+"2018|Aquaman|tt1477834",
+"2018|OVERLORD|tt4530422|overlord",
+"2018|Deadpool 2|tt5463162|deadpool2",
+"2017|GHOST IN THE SHELL|tt1219827|ghostintheshell",
+"2017|THE CROOKED HOUSE|tt1869347|thecrookedh",
+"2017|PERFECTOS DESCONOCIDOS|tt6101820|perfectosdesc",
+"2017|Valerian|tt2239822",
+"2016|EL FUNDADOR|tt4276820|elfundador|(La historia de Mc Donalds)",
+"2016|ROGUE ONE|tt3748528|rogueone",
+"2016|SPECTRAL|tt2106651|spectral",
+"2016|Deadpool|tt1431045|deadpool",
+"2016|Kingsglaive|tt5595168|ffxv|(Final Fantasy XV)",
+"2016|10 Cloverfield Lane|tt1179933|clover2",
+"2016|Miss Peregrine|tt1935859|missperegrine|(Home for Peculiar Children)",
+"2015|The Hateful Eight|tt3460252|thehatefull8",
+"2015|IN THE HEARTH OF THE SEA|tt1390411|inthehearthots",
+"2015|TOMORROWLAND|tt1964418|tomorrowland",
+"2014|LIBRANOS DEL MAL|tt2377322|libranosdelm",
+"2014|THE IDENTICAL|tt2326574|theidentical",
+"2014|EL CÓDIGO ENIGMA|tt2084970|theimitationg",
+"2014|AL FILO DEL MAÑANA|tt1631867|edgeoftomorrow",
+"2014|DRACULA UNTOLD|tt0829150|draculauntold",
+"2014|Maze Runner|tt1790864|mazerunner",
+"2013|Side Effects|tt2053463|sideeffects",
+"2013|THE PHYSICIAN|tt2101473|elsanador|(El sanador)",
+"2013|PACIFIC RIM|tt1663662|pacificrim",
+"2013|ESCAPE PLAN|tt1211956|escapeplan",
+"2013|R.I.P.D.|tt0790736|ripd",
+"2013|The Secret Life of Walter Mitty|tt0359950|waltermitty",
+"2013|OBLIVION|tt1483013|oblivion",
+"2013|Odd Thomas|tt1767354|oddthomas",
+"2013|ENDER'S GAME|tt1731141|enderg",
+"2012|THE TALL MAN|tt1658837|tallman",
+"2012|JHON CARTER|tt0401729|johncarter",
+"2012|BATTLESHIP|tt1440129|battleship",
+"2012|Chronicle|tt1706593",
+"2012|Ralph, el demoledor|tt1772341|ralph1",
+"2011|Sin Límites|tt1219289|limitless",
+"2011|Immortals|tt1253864|inmortals",
+"2011|THE EAGLE|tt1034389|theeagle",
+"2011|The Cabin in the Woods|tt1259521|thecavininthewoods",
+"2011|Linterna Verde|tt1133985|greenlantern",
+"2011|Hugo|tt0970179|hugo",
+"2011|Sanctum|tt0881320|sanctum",
+"2010|INCEPTION|tt1375666|inception",
+"2010|TRON LEGACY|tt1104001|tron2|(Tron 2)",
+"2010|ROBIN HOOD|tt0955308|robinhood",
+"2010|Repo Men|tt1053424|repomen",
+"2010|The Social Network|tt1285016|thesocialnetwork",
+"2010|Percy Jackson|tt0814255|percyjackson",
+"2010|Megamente|tt1001526|megamente",
+"2010|Predators|tt1424381",
+"2010|Scott Pilgrim vs the world|tt0446029|scottpilgrim",
+"2009|ARRASTRAME AL INFIERNO|ARRASTRAME AL INFIERNO|dragmetohell",
+"2009|BASTARDOS SIN GLORIA|tt0361748|ingloriousbast",
+"2009|WATCHMEN|tt0409459|watchmen",
+"2009|La huérfana|tt1148204|lahuerfana",
+"2009|Avatar|tt0499549|avatar",
+"2009|Pandorum|tt1188729|pandorum",
+"2008|Jumper|tt0489099|jumper",
+"2008|HELLBOY: EL EJERCITO DORADO|tt0411477|hellboy2|(Hellboy 2)",
+"2008|Cloverfield|tt1060277|cloverfield",
+"2008|Gran Torino|tt1205489|grantorino",
+"2008|Tropic Thunder|tt0942385|tropicthunder",
+"2008|Kung Fu Panda|tt0441773|kunfupanda",
+"2007|Awake|tt0211933|awake",
+"2007|Disturbia|tt0486822",
+"2007|EL ORFANATO|tt0464141|elorfanato",
+"2007|The Deaths of Ian Stone|tt0810823|ianstone",
+"2007|Stardust|tt0486655",
+"2007|Sleuth|tt0857265",
+"2007|El tren de las 3:10 a Yuma|tt0381849|310ayuma",
+"2007|Soy leyenda|tt0480249|imlegend",
+"2006|EL LABERINTO DEL FAUNO|tt0457430|ellaberintodelf",
+"2006|The Illusionist|tt0443543|theillusionist",
+"2006|Firewall|tt0408345",
+"2006|The Host|tt0468492|thehost",
+"2006|The Prestige|tt0482571|theprestige",
+"2006|The departed|tt0407887|thedeparted|(Los infiltrados)",
+"2006|SILENT HILL|tt0384537|silenthill",
+"2006|BORAT|tt0443453|borat",
+"2006|300|tt0416449|300",
+"2006|The Fall|tt0460791|thefall",
+"2005|THE HITCHHIKER'S GUIDE TO THE GALAXY|tt0371724|hitchiker",
+"2005|Aeon Flux|tt0402022|aeonflux",
+"2005|The Skeleton Key|tt0397101|skeletonkey",
+"2005|Constantine|tt0360486",
+"2005|fragiles|tt0422272",
+"2005|Doom|tt0419706",
+"2005|Mirrormask|tt0366780",
+"2005|Kingdom of Heaven|tt0320661|koheaven",
+"2005|Las crónicas de Narnia|tt0363771|narnia1",
+"2005|The Island|tt0399201|theisland",
+"2005|El método|tt0427582|elmetodo",
+"2004|El amanecer de los muertos|tt0363547|dawnofthedead",
+"2004|THE CHRONICLES OF RIDDICK|tt0296572|riddickc",
+"2004|A very long engagement|tt0344510|averylongeng",
+"2004|LA ALDEA|tt0368447|laaldea",
+"2004|Crimen Ferpecto|tt0395125|crimenferp",
+"2004|Rey Arturo|tt0349683|reyarturo",
+"2004|Meet the Fockers|tt0212338|meetthep2|(Meet the parents 2)",
+"2004|HELLBOY|tt0167190",
+"2004|Troya|tt0332452",
+"2004|Blade: Trinity|tt0359013|blade3|(Blade 3)",
+"2004|Alien vs. Predator|tt0370263|avp",
+"2003|Paycheck|tt0338337",
+"2003|Underworld|tt0320691",
+"2003|The Last Samurai|tt0325710|thelastsamurai",
+"2003|Mystic River|tt0327056|mysticriver",
+"2003|Secondhand Lions|tt0327137|secondhandlions",
+"2003|Timeline|tt0300556",
+"2003|The Italian Job|tt0317740|theitalianjob",
+"2003|Big Fish|tt0319061|bigfish",
+"2003|X-Men 2|tt0290334|xmen2",
+"2003|Out of Time|tt0313443|outoftime",
+"2003|Tomb Raider 2|tt0325703|tombraider2",
+"2003|Gothika|tt0348836",
+"2002|D-Tox|tt0160184|dtox",
+"2002|RESIDENT EVIL|tt0120804|resevil2002",
+"2002|MINORITY REPORT|tt0181689|minorityreport",
+"2002|Catch Me If You Can|tt0264464|catchmeify",
+"2002|La reina de los condenados|tt0238546|queenotd",
+"2002|Kung Pow|tt0240468|kungpow",
+"2002|Spider-Man|tt0145487|spiderman",
+"2002|K-19|tt0267626|k19|The Widowmaker",
+"2002|Reign of Fire|tt0253556|reignoffire",
+"2002|Men in Black 2|tt0120912|meninblack2",
+"2002|Equilibrium|tt0238380",
+"2001|Tomb Raider|tt0146316|tombraider",
+"2001|HARRY POTTER 1|tt0241527|harrypotter",
+"2001|Enemy at the Gates|tt0215750|enemyatgates",
+"2001|Sweet November|tt0230838|sweetnovember",
+"2001|Shrek|tt0126029",
+"2001|Impostor|tt0160399",
+"2001|Amelie|tt0211915",
+"2001|La momia 2|tt0209163|lamomia2",
+"2001|The Unsaid|tt0258967|theunsaid",
+"2001|Vanilla Sky|tt0259711|vanillasky",
+"2001|Spirited Away|tt0245429|chihiro|(El viaje de Chihiro)",
+"2001|Final Fantasy: The Spirit Within|tt0173840|ff2001",
+"2000|Snatch|tt0208092",
+"2000|Memento|tt0209144",
+"2000|Meet the Parents|tt0212338|meetthep1",
+"2000|Gladiador|tt0172495",
+"2000|Lo que ellas quieren|tt0207201|loqueellasq",
+"2000|The Cell|tt0209958|thecell",
+"2000|Bedazzled|tt0230030|bedazzled|(Al diablo con el diablo)",
+"2000|EL 6º DÍA|tt0216216|el6dia",
+"2000|Vertical Limit|tt0190865|verticallimit",
+"2000|X-Men|tt0120903|xmen1",
+"2000|Destino final 1|tt0195714|destfinal1",
+"2000|Shrek 1|tt0126029|shrek1",
+"2000|Supernova|tt0134983",
+"1999|Star Wars: Episodio I|tt0120915|sw1|La amenaza fantasma",
+"1999|The Matrix|tt0133093|thematrix",
+"1999|Payback|tt0120784",
+"1999|Doble riesgo|tt0150377|dobleriesgo",
+"1999|La momia|tt0120616|lamomia1",
+"1999|Fight Club|tt0137523|fightclub",
+"1999|Sleepy Hollow|tt0162661|sleepy|(El jinete sin cabeza)",
+"1999|The Haunting|tt0171363|thehaunting",
+"1999|Galaxy Quest|tt0177789|galaxyquest",
+"1999|Deep Blue Sea|tt0149261|deepbluesea",
+"1998|ESFERA|tt0120184|esfera",
+"1998|The Truman Show|tt0120382|trumanshow",
+"1998|Dark City|tt0118929|darkcity",
+"1998|Disturbing Behavior|tt0134619|disturbingbehavior",
+"1998|Fallen|tt0119099",
+"1998|Rescatando al soldado Ryan|tt0120815|savingryan",
+"1998|Deep Impact|tt0120647|deepimpact",
+"1998|El hombre de la máscara de hierro|tt0120744|ironmask",
+"1998|Lost in Space|tt0120738|lostinspace",
+"1998|Soldier|tt0120157",
+"1998|Más allá de los sueños|tt0120889|whatdreamsmaycome",
+"1998|Snake Eyes|tt0120832|snakeeyes",
+"1997|The Game|tt0119174|thegame",
+"1997|Men in Black|tt0119654|meninblack1",
+"1997|El abogado del diablo|tt0118971|elabogadodeldiablo",
+"1997|STARSHIP TROOPERS|tt0120201|starshiptroopers",
+"1997|EVENT HORIZON|tt0119081|eventhorizon",
+"1997|EL QUINTO ELEMENTO|tt0119116|el5toelemento",
+"1997|Mentiroso Mentiroso|tt0119528|liarliar",
+"1997|El Cube|tt0123755|cube",
+"1997|Gattaca|tt0119177",
+"1996|DragonHeart|tt0116136|dragonhearth",
+"1996|Daylight|tt0116040",
+"1996|The Cable Guy|tt0115798|thecableguy",
+"1996|Garras|tt0116409|garras|(The Ghost and the Darkness)",
+"1996|Star Trek: First Contact|tt0117731|strekfirstc",
+"1996|Multiplicity|tt0117108",
+"1996|Muertos de miedo|tt0116365|muertosdemiedo",
+"1995|WATERWORLD|tt0114898|waterworld",
+"1995|Seven|tt0114369|seven|(Pecados Capitales)",
+"1995|Jumanji|tt0113497",
+"1995|Judge Dredd|tt0113492|judgedredd",
+"1995|12 monos|tt0114746|12monos",
+"1995|The Usual Suspects|tt0114814|theusualsusp",
+"1994|TRUE LIES|tt0111503|truelies",
+"1994|Stargate|tt0111282",
+"1994|The Shadow|tt0111143|theshadow",
+"1994|Naked Gun 33 1/3|tt0110622|nakedgun3",
+"1994|The Shawshank Redemption|tt0111161|shwshankr",
+"1994|Pulp Fiction|tt0110912|pulpfiction",
+"1993|Schindler's List|tt0108052|schindler",
+"1993|El demoledor|tt0106697|eldemoledor",
+"1993|Groundhog Day|tt0107048|groundhog",
+"1993|Jurassic Park|tt0107290|jurassicp1",
+"1993|Cliffhanger|tt0106582",
+"1993|El fugitivo|tt0106977|elfugitivo",
+"1992|Batman Returns|tt0103776|batman2",
+"1992|DRÁCULA|tt0103874|dracula",
+"1992|La muerte le sienta bien|tt0104070|lamuertelesientb",
+"1992|Evil Dead 3|tt0106308|evildead3",
+"1992|Freejack|tt0104299",
+"1991|Rocketeer|tt0102803",
+"1991|OSCAR|tt0102603|oscar",
+"1991|Robin Hood Prince of Thieves|tt0102798|robinhoodkc",
+"1991|Terminator 2|tt0103064|t2",
+"1991|Cape Fear|tt0101540|capefear",
+"1991|Punto límite|tt0102685|pointbreak",
+"1990|TOTAL RECALL|tt0100802|totalrecall",
+"1990|Tremors|tt0100814",
+"1990|Misery|tt0100157",
+"1990|Nightbreed|tt0100260",
+"1990|The Rookie|tt0100514|therookie",
+"1990|Darkman|tt0099365",
+"1990|Men at Work|tt0100135|menatwork",
+"1990|La caza al Octubre Rojo|tt0099810|lacazaaloctrojo",
+"1989|Batman|tt0096895",
+"1989|Tango y Cash|tt0098439|tangoycash",
+"1988|Beetlejuice|tt0094721",
+"1988|Akira|tt0094625",
+"1988|Dos pícaros sinvergüenzas|tt0095031|dospicaross",
+"1988|Las aventuras del barón Munchausen|tt0096764|elbaronm",
+"1988|Young Guns|tt0096487|youngguns",
+"1987|LA PRINCESA PROMETIDA|tt0093779|laprincesaprometida",
+"1987|Predator|tt0093773",
+"1987|Los intocables|tt0094226|losintocables",
+"1987|ROBOCOP|tt0093870|robocop",
+"1987|THE RUNNING MAN|tt0093894|therunningm",
+"1987|El imperio del sol|tt0092965|imperiosol",
+"1987|Las brujas de Eastwick|tt0094332|lasbrujasdeeast",
+"1987|Arma mortal|tt0093409|armamortal",
+"1986|ALIENS|tt0090605|aliens|(Alien 2)",
+"1986|La mosca|tt0091064|thefly",
+"1986|Highlander|tt0091203",
+"1986|Top Gun|tt0092099|topgun",
+"1986|fx|tt0089118",
+"1986|Laberinto|tt0091369",
+"1985|The Goonies|tt0089218|thegoonies",
+"1985|Back to the Future|tt0088763|backtothefut1",
+"1985|House: La Casa del Horror|tt0091223|house85",
+"1985|Brazil|tt0088846",
+"1984|Terminator|tt0088247",
+"1984|Ghostbusters|tt0087332",
+"1984|La historia sin fin|tt0088323|neverendingst",
+"1984|Top Secret!|tt0088286|topsecret",
+"1984|Gremlins|tt0087363",
+"1984|JOHNNY DANGEROUSLY|tt0087507|johnydang",
+"1984|CONAN THE DESTROYER|tt0087078|conan2|(Conan 2)",
+"1983|Impacto fulminante|tt0086383|impactofulminante",
+"1983|Star Wars: Episodio VI|tt0086190|starwars6|El regreso del Jedi",
+"1982|Blade Runner|tt0083658|bladerunner",
+"1982|CONAN THE BARBARIAN|tt0082198|conan",
+"1982|THE DARK CRYSTAL|tt0083791|thedarkcrystal",
+"1982|Invasion Junk|tt0083630|beastmaster",
+"1982|TRON|tt0084827|tron",
+"1982|THE THING|tt0084787|thething",
+"1981|Indiana Jones 1|tt0082971|indianajones1|(Raiders of the lost ark)",
+"1981|Das Boot|tt0082096|dasboot",
+"1981|Time Bandits|tt0081633|timebandits",
+"1980|Star Wars: Episodio V|tt0080684|starwars5|El imperio contraataca",
+"1979|ALIEN|tt0078748|alien",
+"1979|Bear Island|tt0078836|bearisland",
+"1977|Star Wars: Episodio IV|tt0076759|starwars4|Una nueva esperanza"
+
+];
+
+    document.getElementById('tit').classList.remove("hidden");
+    setTimeout(() => { document.getElementById('main').classList.remove("hidden"); }, 350);
+    document.getElementById('loading').classList.add("hidden");
+    var oldy;var yadded=false;
+    var r=db.map(m => {
+        m=m.split("|"); var p='';
+        if(oldy!=m[0]){
+            if (yadded) { p+='</div>'; }
+            p+='<div class="yblock"><div class="ytitle">'+m[0]+'</div>'; yadded=true;
+            oldy=m[0];
+        } 
+        p+='<a class="p" href="https://www.imdb.com/title/'+m[2]+'">';
+        if (m.length==3) { m.push(m[1]); }
+        p+='<img src="img/'+m[3].toLocaleLowerCase()+'.jpg">';
+        p+='<div>'+m[1].toLocaleUpperCase()+'</div>';
+        if (m.length==5) { p+='<div>'+m[4]+'</div>'; }
+        p+='</a>';
+
+        return p;
+    }).join('');
+    if (r!='') { r+='</div>';}
+    r+='<div id="tot">Total: '+(db.length)+'</div>';
+    var c = document.getElementById('movies');
+
+    c.innerHTML=r;
+}
+window.onload = addm
+</script>
+
+<body>
+    <div id="bkg"></div>
+    <div id="container">
+        <img id="titimg" src="assets/title.png" class="hidden">
+        <div id="tit" class="animtitle hidden"></div>
+        <div id="main" class="blurin hidden">
+            <div id="rmk">* Sagas: Omito <i>Marvel Avengers</i> (desde Ironman hasta End Game) y <i>El Señor de los Anillos</i> porque en su mayoria valen la pena verlas. Del resto normalmente agrego solo la primera salvo casos especiales.</div>
+            <div id="movies"></div>
+        </div>
+        <div id="loading"></div>
+    </div>
+</body>
+
+
+</html>
