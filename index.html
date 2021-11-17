@@ -57,6 +57,20 @@
         letter-spacing: 2px;
         margin-bottom: .15em;
     }
+    .yblock:hover .ytitle2 {
+        display: block;
+        color: #d28f17;
+    }
+    .ytitle2 {
+        display: none;
+        color:#FFF;
+        position: fixed;
+        top: 5px;
+        right: 1em;
+        background-color: #0006;
+        padding: 0 10px;
+        border-radius: 25px;
+    }
     .p {
         text-align: center;
         display: inline-block;
@@ -199,6 +213,7 @@ var db=[
 "2013|ESCAPE PLAN|tt1211956|escapeplan",
 "2013|R.I.P.D.|tt0790736|ripd",
 "2013|The Secret Life of Walter Mitty|tt0359950|waltermitty",
+"2013|The Book Thief|tt0816442|tbookthief",
 "2013|OBLIVION|tt1483013|oblivion",
 "2013|Odd Thomas|tt1767354|oddthomas",
 "2013|ENDER'S GAME|tt1731141|enderg",
@@ -224,35 +239,42 @@ var db=[
 "2010|Megamente|tt1001526|megamente",
 "2010|The Crazies|tt0455407|thecrazies",
 "2010|Predators|tt1424381",
+"2010|Black Death|tt1181791|blackdeath",
 "2010|Scott Pilgrim vs the world|tt0446029|scottpilgrim",
 "2009|ARRASTRAME AL INFIERNO|ARRASTRAME AL INFIERNO|dragmetohell",
 "2009|BASTARDOS SIN GLORIA|tt0361748|ingloriousbast",
 "2009|WATCHMEN|tt0409459|watchmen",
 "2009|La huérfana|tt1148204|lahuerfana",
 "2009|Avatar|tt0499549|avatar",
+"2009|Coraline|tt0327597",
 "2009|Pandorum|tt1188729|pandorum",
 "2008|Jumper|tt0489099|jumper",
 "2008|HELLBOY: EL EJERCITO DORADO|tt0411477|hellboy2|(Hellboy 2)",
 "2008|Cloverfield|tt1060277|cloverfield",
 "2008|Gran Torino|tt1205489|grantorino",
+"2008|Outlander|tt0462465",
 "2008|Tropic Thunder|tt0942385|tropicthunder",
 "2008|Kung Fu Panda|tt0441773|kunfupanda",
+"2008|City of Ember|tt0970411|cityofember",
 "2007|Awake|tt0211933|awake",
 "2007|Disturbia|tt0486822",
 "2007|EL ORFANATO|tt0464141|elorfanato",
 "2007|The Deaths of Ian Stone|tt0810823|ianstone",
 "2007|Stardust|tt0486655",
 "2007|Sleuth|tt0857265",
+"2007|Pathfinder|tt0446013",
 "2007|El tren de las 3:10 a Yuma|tt0381849|310ayuma",
 "2007|Soy leyenda|tt0480249|imlegend",
 "2006|EL LABERINTO DEL FAUNO|tt0457430|ellaberintodelf",
+"2006|Poseidon|tt0409182",
+"2006|The Loft|tt1850397|tloft",
 "2006|The Illusionist|tt0443543|theillusionist",
 "2006|Firewall|tt0408345",
 "2006|The Host|tt0468492|thehost",
-"2006|The Prestige|tt0482571|theprestige",
-"2006|The departed|tt0407887|thedeparted|(Los infiltrados)",
 "2006|SILENT HILL|tt0384537|silenthill",
+"2006|The Prestige|tt0482571|theprestige",
 "2006|BORAT|tt0443453|borat",
+"2006|The departed|tt0407887|thedeparted|(Los infiltrados)",
 "2006|300|tt0416449|300",
 "2006|The Fall|tt0460791|thefall",
 "2005|THE HITCHHIKER'S GUIDE TO THE GALAXY|tt0371724|hitchiker",
@@ -294,6 +316,8 @@ var db=[
 "2002|28 Days Later...|tt0289043|28dias",
 "2002|RESIDENT EVIL|tt0120804|resevil2002",
 "2002|MINORITY REPORT|tt0181689|minorityreport",
+"2002|Monte Cristo|tt0245844|montecristo",
+"2002|The Time Machine|tt0268695|timemachine",
 "2002|Catch Me If You Can|tt0264464|catchmeify",
 "2002|La reina de los condenados|tt0238546|queenotd",
 "2002|Kung Pow|tt0240468|kungpow",
@@ -311,6 +335,7 @@ var db=[
 "2001|Amelie|tt0211915",
 "2001|La momia 2|tt0209163|lamomia2",
 "2001|The Unsaid|tt0258967|theunsaid",
+"2001|Mermaid Chronicles Part 1|tt0274659|mermaidchron1",
 "2001|Vanilla Sky|tt0259711|vanillasky",
 "2001|Spirited Away|tt0245429|chihiro|(El viaje de Chihiro)",
 "2001|Final Fantasy: The Spirit Within|tt0173840|ff2001",
@@ -328,6 +353,7 @@ var db=[
 "2000|Destino final 1|tt0195714|destfinal1",
 "2000|Shrek 1|tt0126029|shrek1",
 "2000|Supernova|tt0134983",
+"2000|Space Cowboys|tt0186566|spacecowboys",
 "1999|Star Wars: Episodio I|tt0120915|sw1|La amenaza fantasma",
 "1999|The Matrix|tt0133093|thematrix",
 "1999|Payback|tt0120784",
@@ -338,6 +364,7 @@ var db=[
 "1999|The Haunting|tt0171363|thehaunting",
 "1999|Galaxy Quest|tt0177789|galaxyquest",
 "1999|Deep Blue Sea|tt0149261|deepbluesea",
+"1999|Wing Commander|tt0131646|wingcomm",
 "1998|ESFERA|tt0120184|esfera",
 "1998|The Truman Show|tt0120382|trumanshow",
 "1998|Dark City|tt0118929|darkcity",
@@ -369,8 +396,10 @@ var db=[
 "1995|WATERWORLD|tt0114898|waterworld",
 "1995|Seven|tt0114369|seven|(Pecados Capitales)",
 "1995|Jumanji|tt0113497",
+"1995|A little princess|tt0113670|littleprincess",
 "1995|Judge Dredd|tt0113492|judgedredd",
 "1995|12 monos|tt0114746|12monos",
+"1995|Citizen X|tt0112681|citizenx",
 "1995|The Usual Suspects|tt0114814|theusualsusp",
 "1994|TRUE LIES|tt0111503|truelies",
 "1994|Stargate|tt0111282",
@@ -453,7 +482,10 @@ var db=[
 "1980|Star Wars: Episodio V|tt0080684|starwars5|El imperio contraataca",
 "1979|ALIEN|tt0078748|alien",
 "1979|Bear Island|tt0078836|bearisland",
-"1977|Star Wars: Episodio IV|tt0076759|starwars4|Una nueva esperanza"
+"1977|Star Wars: Episodio IV|tt0076759|starwars4|Una nueva esperanza",
+"Más viejas|Soylent Green|tt0070723|soylentgreen|(1973)",
+"Más viejas|Barbarella|tt0062711|Barbarella|(1968)",
+"Más viejas|The Big Clock|tt0040160|tbigclock|(1948)"
 
 ];
 
@@ -465,7 +497,9 @@ var db=[
         m=m.split("|"); var p='';
         if(oldy!=m[0]){
             if (yadded) { p+='</div>'; }
-            p+='<div class="yblock"><div class="ytitle">'+m[0]+'</div>'; yadded=true;
+            p+='<div class="yblock"><div class="ytitle">'+m[0]+'</div>';
+            p+='<div class="ytitle2">'+m[0]+'</div>';
+            yadded=true;
             oldy=m[0];
         } 
         p+='<a class="p" href="https://www.imdb.com/title/'+m[2]+'">';
