@@ -15,11 +15,6 @@
     .blurin {animation:ablurin 0.6s;}@keyframes ablurin{from{filter:blur(100px);} to{filter:blur(0px);}}
     @keyframes kfantit{from{filter:blur(100px); transform: scale(1.5);} to{filter:blur(0px); transform: scale(1);}}
     .opacity-in{animation:opac-in 0.8s;}@keyframes opac-in{0%{opacity:0.1} 100%{opacity:1;}}
-    .animtitle {
-        animation: kfantit 0.6s,huerotator1 10s linear 1s infinite normal;
-        height: 232px;
-        background: url(assets/title.png) center top no-repeat;
-    }
     .hidden {display: none; }
     body {
         margin: 0;
@@ -57,19 +52,17 @@
         letter-spacing: 2px;
         margin-bottom: .15em;
     }
-    .yblock:hover .ytitle2 {
-        display: block;
-        color: #d28f17;
-    }
     .ytitle2 {
         display: none;
         color:#FFF;
         position: fixed;
         top: 5px;
         right: 1em;
-        background-color: #0006;
-        padding: 0 10px;
+        background-color: #292929f6;
+        padding: 2px 10px 0px;
         border-radius: 25px;
+        box-shadow: 0 2px 3px #000;
+        font-weight: 600;
     }
     .p {
         text-align: center;
@@ -77,9 +70,6 @@
         margin: 1em;
     }
     .p:hover { transform: scale(1.05); }  
-    a div {
-        width: 220px;
-    } 
     a.p {
         text-decoration: none;
         color: yellow;
@@ -90,9 +80,10 @@
         animation:fwidth-in 2s;
         animation-fill-mode: forwards;
         display: inline-flex;
-        align-items: center;
         flex-wrap: wrap;
         flex-direction: column;
+        align-items: center;
+        align-content: center;
     }
     @keyframes fwidth-in{0%{max-width: 10px;} 100%{max-width: 195px;}}
     a.p:hover div:nth-child(2) {
@@ -159,6 +150,38 @@
         margin: auto;
         position: absolute;
         width: 35px;
+    }
+    @media screen and (min-width: 576px) {
+        /* Solo Pantalla grande */
+        .yblock:hover .ytitle2 {
+            display: block;
+            color: #d28f17;
+        }
+        .animtitle {
+            animation: kfantit 0.6s,huerotator1 10s linear 1s infinite normal;
+            background: url(assets/title.png) center top no-repeat;
+            height: 232px;
+        }
+        a div { width: 220px; } 
+    }
+    /* Version para pantalla chica */
+    @media screen and (max-width: 576px) {
+        .animtitle {
+            animation: kfantit 0.6s,huerotator1 10s linear 1s infinite normal;
+            background: url(assets/title.png) center top no-repeat;
+            height: 132px;
+            background-size: contain;
+            margin: 0px -60px -40px -40px;
+        }
+        .p img {
+            width: 40vw;
+            height: auto;
+            /*height: 141px;*/
+        }
+        a.p {
+            font-size: 0.9em;
+        }
+        a div { max-width: 42vw; } 
     }
     
 </style>
