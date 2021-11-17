@@ -36,7 +36,6 @@
         font-weight: bold;
     }
     #container { 
-        /* background-image: url(assets/runes2.png);  */
         max-width: 1300px;
         margin-left: auto;
         margin-right: auto;
@@ -70,13 +69,12 @@
         margin: 1em;
     }
     .p:hover { transform: scale(1.05); }  
-    a.p {
+    a.p { 
         text-decoration: none;
         color: yellow;
         font-family: system-ui;
         font-weight: 500;
         font-size: 1.3rem;
-        /* max-width: 190px; */
         animation:fwidth-in 2s;
         animation-fill-mode: forwards;
         display: inline-flex;
@@ -95,14 +93,13 @@
     .p div ~ div {
         color: white;
         font-size: 0.8rem;
-        /* text-decoration: none !important; */
     }
 
     .p img {
         box-shadow: 0 0 12px -2px #243d85;
         border: 1px solid #002f65;
         width: 194px;
-        height: 285px;
+        /* height: 288px; */
     }
     .p:hover img {
         box-shadow: 0 0 18px 0px #1f2fff;
@@ -183,11 +180,41 @@
         }
         a div { max-width: 42vw; } 
     }
+
+    #movies.pornombre div.yblock {
+        margin-bottom: unset;
+        display: inline-block;
+        position: relative;
+    }
+    #movies.pornombre div.ytitle {
+        font-size: 1.5rem;
+        margin-top: 0.3em;
+        margin-bottom: -0.6em;
+        filter: drop-shadow(2px 2px 2px #000F) drop-shadow(0px 0px 2px #08F8);
+    }
+    #movies.pornombre a.p { animation:unset; }
+    #movies.pornombre .p img { animation: ablurin 1s; }
     
+    .cb { margin-bottom: 2em; }
+    .ba { border-radius: 5px 0 0 5px; margin-right: -1px; }
+    .bb { border-radius: 0 5px 5px 0; margin-left: -1px; }
+    .bc {
+        display: inline-block;
+        padding: 0.6em 0;
+        background: #234273;
+        cursor: pointer;
+        width: 140px;
+        max-width: 40vw;
+    }
+    .bc:hover {
+        background-color: #6e94d0;
+        color: #000000;
+    }
+
 </style>
 
 <script>
-function addm(){
+function addm(modo){
 var db=[
 "2021|ESCAPE ROOM 2|tt9844522|escaperoom2",
 "2021|Duna|tt1160419",
@@ -290,6 +317,7 @@ var db=[
 "2007|Soy leyenda|tt0480249|imlegend",
 "2006|EL LABERINTO DEL FAUNO|tt0457430|ellaberintodelf",
 "2006|Poseidon|tt0409182",
+"2006|Guardianes del día|tt0409904|dnevnoydozor",
 "2006|The Loft|tt1850397|tloft",
 "2006|The Illusionist|tt0443543|theillusionist",
 "2006|Firewall|tt0408345",
@@ -315,6 +343,7 @@ var db=[
 "2004|El amanecer de los muertos|tt0363547|dawnofthedead",
 "2004|THE CHRONICLES OF RIDDICK|tt0296572|riddickc",
 "2004|A very long engagement|tt0344510|averylongeng",
+"2004|Guardianes de la noche|tt0403358|nochnoydozor",
 "2004|LA ALDEA|tt0368447|laaldea",
 "2004|Crimen Ferpecto|tt0395125|crimenferp",
 "2004|Rey Arturo|tt0349683|reyarturo",
@@ -402,6 +431,7 @@ var db=[
 "1998|Snake Eyes|tt0120832|snakeeyes",
 "1998|La delgada línea roja|tt0120863|thinredline",
 "1997|The Game|tt0119174|thegame",
+"1997|Nightwatch|tt0119791",
 "1997|Men in Black|tt0119654|meninblack1",
 "1997|El abogado del diablo|tt0118971|elabogadodeldiablo",
 "1997|STARSHIP TROOPERS|tt0120201|starshiptroopers",
@@ -514,10 +544,15 @@ var db=[
 
 ];
 
+    //0=año , 1=Nombre
+    if(modo==undefined) { modo=0;}    
+
+    //Ordeno por año y nombre
     db.sort(function(a, b){
         a = a.split('|');  b = b.split('|');
         var na = parseInt(a[0]); if (!(Number.isInteger(na))) { na=0; }
         var nb = parseInt(b[0]); if (!(Number.isInteger(nb))) { nb=0; }
+        if (modo==1) { na=nb='A-Z'; }
         
         if (na < nb ) {
             return 1;
@@ -535,7 +570,7 @@ var db=[
     var oldy;var yadded=false;
     var r=db.map(m => {
         m=m.split("|"); var p='';
-        if(oldy!=m[0]){
+        if((oldy!=m[0])||(modo==1)) {
             if (yadded) { p+='</div>'; }
             p+='<div class="yblock"><div class="ytitle">'+m[0]+'</div>';
             p+='<div class="ytitle2">'+m[0]+'</div>';
@@ -554,10 +589,24 @@ var db=[
     if (r!='') { r+='</div>';}
     r+='<div id="tot">Total: '+(db.length)+'</div>';
     var c = document.getElementById('movies');
-
+    if (modo==0) {
+        c.classList.remove('pornombre');
+    } else {
+        c.classList.add('pornombre');
+    }
     c.innerHTML=r;
+
+
 }
-window.onload = addm
+function load() {
+    var a = document.querySelector(".ba.bc");
+    a.addEventListener("click", function(){addm(0);});
+    var b = document.querySelector(".bb.bc");
+    b.addEventListener("click", function(){addm(1);});
+    addm();
+}
+window.onload = load;
+
 </script>
 
 <body>
@@ -567,6 +616,10 @@ window.onload = addm
         <div id="tit" class="animtitle hidden"></div>
         <div id="main" class="blurin hidden">
             <div id="rmk">* Sagas: Omito <i>Marvel Avengers</i> (desde Ironman hasta End Game) y <i>El Señor de los Anillos</i> porque en su mayoria valen la pena verlas. Del resto normalmente agrego solo la primera salvo casos especiales.</div>
+            <div class="cb">
+                <div class="ba bc">Por Año</div>
+                <div class="bb bc">Por Nombre</div>
+            </div>
             <div id="movies"></div>
         </div>
         <div id="loading"></div>
