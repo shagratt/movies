@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="assets/favicon.ico">
+    <title>Pelis recomendas por Shagratt</title>
 </head>
 
 <style>
@@ -80,6 +81,7 @@
         text-align: center;
         padding: 0 10px;
         margin-top: 1em;
+        position:relative;
     }
     @keyframes fwidth-in{0%{max-width: 10px;} 100%{max-width: 195px;}}
     a.p:hover div:nth-child(2) {
@@ -93,13 +95,13 @@
         font-size: 0.8rem;
     }
 
-    .p img {
+    .p .img {
         box-shadow: 0 0 12px -2px #243d85;
         border: 1px solid #002f65;
         width: 192px;
         /* height: 288px; */
     }
-    .p:hover img {
+    .p:hover .img {
         box-shadow: 0 0 18px 0px #1f2fff;
         border: 1px solid #485fe9;
     }
@@ -146,6 +148,31 @@
         position: absolute;
         width: 35px;
     }
+    .sglogo {
+        position: absolute;
+        top: -27px;
+        left: -12px;
+        transform: scale(0.9);
+        z-index: 5;
+    }
+    .p:hover .sglogo { filter: drop-shadow(0px 0px 6px #1f2fff);}
+
+    #movies.pornombre div.yblock {
+        margin-bottom: unset;
+        margin-top: 1.2em;
+        display: inline-block;
+    }
+    #movies.pornombre div.ytitle {
+        font-size: 1.5rem;
+        margin-top: 0.3em;
+        margin-bottom: -0.6em;
+        filter: drop-shadow(2px 2px 2px #000F) drop-shadow(0px 0px 2px #08F8);
+    }
+    #movies.pornombre a.p { animation:unset; }
+    #movies .p .img { animation: ablurin 1s; }
+    #movies.pornombre .p .img { animation: ablurin 1s; }
+    #movies.pornombre .p .sglogo { animation: ablurin 1s; top: -27px; left: 0px; }
+
     @media screen and (min-width: 576px) {
         /* Solo Pantalla grande */
         .yblock:hover .ytitle2 {
@@ -168,7 +195,7 @@
             background-size: contain;
             margin: 0px -60px -40px -40px;
         }
-        .p img {
+        .p .img {
             width: 40vw;
             height: auto;
             /*height: 141px;*/
@@ -177,21 +204,17 @@
             font-size: 0.9em;
         }
         a div { max-width: 42vw; } 
+        .sglogo {
+            left: -10px;
+            max-width: 12vw;
+            transform: scale(0.8);
+        }
+        #movies.pornombre .p .sglogo {
+            left: -10px;
+            max-width: 12vw;
+            transform: scale(0.8);
+        }
     }
-
-    #movies.pornombre div.yblock {
-        margin-bottom: unset;
-        margin-top: 1.2em;
-        display: inline-block;
-    }
-    #movies.pornombre div.ytitle {
-        font-size: 1.5rem;
-        margin-top: 0.3em;
-        margin-bottom: -0.6em;
-        filter: drop-shadow(2px 2px 2px #000F) drop-shadow(0px 0px 2px #08F8);
-    }
-    #movies.pornombre a.p { animation:unset; }
-    #movies.pornombre .p img { animation: ablurin 1s; }
     
     .cb { margin-bottom: 2em; }
     .ba { border-radius: 5px 0 0 5px; margin-right: -1px; }
@@ -238,7 +261,9 @@ var db=[
 "2018|Deadpool 2|tt5463162|deadpool2",
 "2017|GHOST IN THE SHELL|tt1219827|ghostintheshell",
 "2017|THE CROOKED HOUSE|tt1869347|thecrookedh",
+"2017|What Happened to Monday|tt1536537|whathapmonday",
 "2017|PERFECTOS DESCONOCIDOS|tt6101820|perfectosdesc",
+"2017|Annabelle 2|tt5140878|annabelle2",
 "2017|Valerian|tt2239822",
 "2016|EL FUNDADOR|tt4276820|elfundador|(La historia de Mc Donalds)",
 "2016|ROGUE ONE|tt3748528|rogueone",
@@ -247,15 +272,24 @@ var db=[
 "2016|Kingsglaive|tt5595168|ffxv|(Final Fantasy XV)",
 "2016|10 Cloverfield Lane|tt1179933|clover2",
 "2016|Miss Peregrine|tt1935859|missperegrine|(Home for Peculiar Children)",
-"2015|The Hateful Eight|tt3460252|thehatefull8",
 "2015|IN THE HEARTH OF THE SEA|tt1390411|inthehearthots",
+"2015|Infini|tt3327624",
+"2015|The Hateful Eight|tt3460252|thehatefull8",
 "2015|TOMORROWLAND|tt1964418|tomorrowland",
+"2015|Bridge of Spies|tt3682448|bridgeofspies",
+"2014|AL FILO DEL MAÑANA|tt1631867|edgeoftomorrow",
+"2014|Eliza Graves|tt1772264|elizagraves",
+"2014|EL CÓDIGO ENIGMA|tt2084970|theimitationg",
+"2014|Exodus: Gods and Kings|tt1528100|exodusgodsk",
 "2014|LIBRANOS DEL MAL|tt2377322|libranosdelm",
 "2014|THE IDENTICAL|tt2326574|theidentical",
-"2014|EL CÓDIGO ENIGMA|tt2084970|theimitationg",
-"2014|AL FILO DEL MAÑANA|tt1631867|edgeoftomorrow",
+"2014|The Giver|tt0435651|thegiver",
+"2014|The Signal|tt2910814|thesignal",
+"2014|Seventh Son|tt1121096|seventhson",
+"2014|Sabotage|tt1742334",
 "2014|DRACULA UNTOLD|tt0829150|draculauntold",
 "2014|Maze Runner|tt1790864|mazerunner",
+"2014|Viy|tt1224378",
 "2013|Side Effects|tt2053463|sideeffects",
 "2013|THE PHYSICIAN|tt2101473|elsanador|(El sanador)",
 "2013|PACIFIC RIM|tt1663662|pacificrim",
@@ -265,10 +299,11 @@ var db=[
 "2013|The Book Thief|tt0816442|tbookthief",
 "2013|OBLIVION|tt1483013|oblivion",
 "2013|Odd Thomas|tt1767354|oddthomas",
+"2013|The Best Offer|tt1924396|thebestoffer",
 "2013|ENDER'S GAME|tt1731141|enderg",
 "2012|THE TALL MAN|tt1658837|tallman",
 "2012|Life of Pi|tt0454876|lifeofpi",
-"2012|JHON CARTER|tt0401729|johncarter",
+"2012|JHON CARTER|tt0401729|johncarterç",
 "2012|BATTLESHIP|tt1440129|battleship",
 "2012|Chronicle|tt1706593",
 "2012|Ralph, el demoledor|tt1772341|ralph1",
@@ -280,7 +315,7 @@ var db=[
 "2011|Hugo|tt0970179|hugo",
 "2011|Sanctum|tt0881320|sanctum",
 "2010|INCEPTION|tt1375666|inception",
-"2010|TRON LEGACY|tt1104001|tron2|(Tron 2)",
+"2010|TRON LEGACY|tt1104001|tron2|(Tron 2)ç",
 "2010|ROBIN HOOD|tt0955308|robinhood",
 "2010|Repo Men|tt1053424|repomen",
 "2010|The Social Network|tt1285016|thesocialnetwork",
@@ -295,10 +330,10 @@ var db=[
 "2009|WATCHMEN|tt0409459|watchmen",
 "2009|La huérfana|tt1148204|lahuerfana",
 "2009|Avatar|tt0499549|avatar",
-"2009|Coraline|tt0327597",
+"2009|Coraline|tt0327597ç",
 "2009|Pandorum|tt1188729|pandorum",
 "2008|Jumper|tt0489099|jumper",
-"2008|HELLBOY: EL EJERCITO DORADO|tt0411477|hellboy2|(Hellboy 2)",
+"2008|HELLBOY: EL EJERCITO DORADO|tt0411477|hellboy2|(Hellboy 2)ç",
 "2008|Cloverfield|tt1060277|cloverfield",
 "2008|Gran Torino|tt1205489|grantorino",
 "2008|Outlander|tt0462465",
@@ -314,7 +349,7 @@ var db=[
 "2007|Pathfinder|tt0446013",
 "2007|El tren de las 3:10 a Yuma|tt0381849|310ayuma",
 "2007|Soy leyenda|tt0480249|imlegend",
-"2006|EL LABERINTO DEL FAUNO|tt0457430|ellaberintodelf",
+"2006|EL LABERINTO DEL FAUNO|tt0457430|ellaberintodelfç",
 "2006|Poseidon|tt0409182",
 "2006|Guardianes del día|tt0409904|dnevnoydozor",
 "2006|The Loft|tt1850397|tloft",
@@ -326,7 +361,7 @@ var db=[
 "2006|BORAT|tt0443453|borat",
 "2006|The departed|tt0407887|thedeparted|(Los infiltrados)",
 "2006|300|tt0416449|300",
-"2006|The Fall|tt0460791|thefall",
+"2006|The Fall|tt0460791|thefallç",
 "2005|THE HITCHHIKER'S GUIDE TO THE GALAXY|tt0371724|hitchiker",
 "2005|Aeon Flux|tt0402022|aeonflux",
 "2005|The Skeleton Key|tt0397101|skeletonkey",
@@ -340,11 +375,11 @@ var db=[
 "2005|The Island|tt0399201|theisland",
 "2005|El método|tt0427582|elmetodo",
 "2004|El amanecer de los muertos|tt0363547|dawnofthedead",
-"2004|THE CHRONICLES OF RIDDICK|tt0296572|riddickc",
+"2004|THE CHRONICLES OF RIDDICK|tt0296572|riddickcç",
 "2004|A very long engagement|tt0344510|averylongeng",
 "2004|Guardianes de la noche|tt0403358|nochnoydozor",
 "2004|LA ALDEA|tt0368447|laaldea",
-"2004|Crimen Ferpecto|tt0395125|crimenferp",
+"2004|Crimen Ferpecto|tt0395125|crimenferpç",
 "2004|Rey Arturo|tt0349683|reyarturo",
 "2004|Meet the Fockers|tt0212338|meetthep2|(Meet the parents 2)",
 "2004|HELLBOY|tt0167190",
@@ -352,13 +387,14 @@ var db=[
 "2004|Blade: Trinity|tt0359013|blade3|(Blade 3)",
 "2004|Alien vs. Predator|tt0370263|avp",
 "2003|Paycheck|tt0338337",
+"2003|Dreamcatcher|tt0285531",
 "2003|Underworld|tt0320691",
 "2003|The Last Samurai|tt0325710|thelastsamurai",
 "2003|Mystic River|tt0327056|mysticriver",
 "2003|Secondhand Lions|tt0327137|secondhandlions",
 "2003|Timeline|tt0300556",
 "2003|The Italian Job|tt0317740|theitalianjob",
-"2003|Big Fish|tt0319061|bigfish",
+"2003|Big Fish|tt0319061|bigfishç",
 "2003|X-Men 2|tt0290334|xmen2",
 "2003|Out of Time|tt0313443|outoftime",
 "2003|Tomb Raider 2|tt0325703|tombraider2",
@@ -390,23 +426,24 @@ var db=[
 "2001|Vanilla Sky|tt0259711|vanillasky",
 "2001|Spirited Away|tt0245429|chihiro|(El viaje de Chihiro)",
 "2001|Final Fantasy: The Spirit Within|tt0173840|ff2001",
-"2001|El pacto de los lobos|tt0237534|pactolobos",
-"2000|Snatch|tt0208092",
+"2001|El pacto de los lobos|tt0237534|pactolobosç",
+"2000|Bedazzled|tt0230030|bedazzled|(Al diablo con el diablo)ç",
+"2000|Destino final 1|tt0195714|destfinal1",
 "2000|Memento|tt0209144",
-"2000|Meet the Parents|tt0212338|meetthep1",
+"2000|EL 6º DÍA|tt0216216|el6dia",
 "2000|Gladiador|tt0172495",
 "2000|Lo que ellas quieren|tt0207201|loqueellasq",
-"2000|The Cell|tt0209958|thecell",
-"2000|Bedazzled|tt0230030|bedazzled|(Al diablo con el diablo)",
-"2000|EL 6º DÍA|tt0216216|el6dia",
-"2000|Vertical Limit|tt0190865|verticallimit",
-"2000|X-Men|tt0120903|xmen1",
-"2000|Destino final 1|tt0195714|destfinal1",
+"2000|Meet the Parents|tt0212338|meetthep1",
+"2000|Red Planet|tt0199753|redplanet",
+"2000|Snatch|tt0208092",
 "2000|Shrek 1|tt0126029|shrek1",
 "2000|Supernova|tt0134983",
 "2000|Space Cowboys|tt0186566|spacecowboys",
+"2000|The Cell|tt0209958|thecell",
+"2000|Vertical Limit|tt0190865|verticallimit",
+"2000|X-Men|tt0120903|xmen1",
 "1999|Star Wars: Episodio I|tt0120915|sw1|La amenaza fantasma",
-"1999|The Matrix|tt0133093|thematrix",
+"1999|The Matrix|tt0133093|thematrixç",
 "1999|Payback|tt0120784",
 "1999|Doble riesgo|tt0150377|dobleriesgo",
 "1999|La momia|tt0120616|lamomia1",
@@ -418,7 +455,7 @@ var db=[
 "1999|Wing Commander|tt0131646|wingcomm",
 "1998|ESFERA|tt0120184|esfera",
 "1998|The Truman Show|tt0120382|trumanshow",
-"1998|Dark City|tt0118929|darkcity",
+"1998|Dark City|tt0118929|darkcityç",
 "1998|Disturbing Behavior|tt0134619|disturbingbehavior",
 "1998|Fallen|tt0119099",
 "1998|Rescatando al soldado Ryan|tt0120815|savingryan",
@@ -433,7 +470,7 @@ var db=[
 "1997|Nightwatch|tt0119791",
 "1997|Men in Black|tt0119654|meninblack1",
 "1997|El abogado del diablo|tt0118971|elabogadodeldiablo",
-"1997|STARSHIP TROOPERS|tt0120201|starshiptroopers",
+"1997|STARSHIP TROOPERS|tt0120201|starshiptroopersç",
 "1997|EVENT HORIZON|tt0119081|eventhorizon",
 "1997|EL QUINTO ELEMENTO|tt0119116|el5toelemento",
 "1997|Mentiroso Mentiroso|tt0119528|liarliar",
@@ -455,7 +492,7 @@ var db=[
 "1995|Citizen X|tt0112681|citizenx",
 "1995|The Usual Suspects|tt0114814|theusualsusp",
 "1994|TRUE LIES|tt0111503|truelies",
-"1994|Stargate|tt0111282",
+"1994|Stargate|tt0111282ç",
 "1994|The Shadow|tt0111143|theshadow",
 "1994|Naked Gun 33 1/3|tt0110622|nakedgun3",
 "1994|The Shawshank Redemption|tt0111161|shwshankr",
@@ -477,7 +514,7 @@ var db=[
 "1991|Terminator 2|tt0103064|t2",
 "1991|Cape Fear|tt0101540|capefear",
 "1991|Punto límite|tt0102685|pointbreak",
-"1990|TOTAL RECALL|tt0100802|totalrecall",
+"1990|TOTAL RECALL|tt0100802|totalrecallç",
 "1990|Tremors|tt0100814",
 "1990|Misery|tt0100157",
 "1990|Nightbreed|tt0100260",
@@ -502,7 +539,7 @@ var db=[
 "1987|El imperio del sol|tt0092965|imperiosol",
 "1987|Las brujas de Eastwick|tt0094332|lasbrujasdeeast",
 "1987|Arma mortal|tt0093409|armamortal",
-"1986|ALIENS|tt0090605|aliens|(Alien 2)",
+"1986|ALIENS|tt0090605|aliens|(Alien 2)ç",
 "1986|La mosca|tt0091064|thefly",
 "1986|Highlander|tt0091203",
 "1986|Top Gun|tt0092099|topgun",
@@ -513,7 +550,7 @@ var db=[
 "1985|Back to the Future|tt0088763|backtothefut1",
 "1985|After Hours|tt0088680|afterhours",
 "1985|House: La Casa del Horror|tt0091223|house85",
-"1985|Brazil|tt0088846",
+"1985|Brazil|tt0088846ç",
 "1984|Terminator|tt0088247",
 "1984|Ghostbusters|tt0087332",
 "1984|La historia sin fin|tt0088323|neverendingst",
@@ -534,7 +571,7 @@ var db=[
 "1981|Das Boot|tt0082096|dasboot",
 "1981|Time Bandits|tt0081633|timebandits",
 "1980|Star Wars: Episodio V|tt0080684|starwars5|El imperio contraataca",
-"1979|ALIEN|tt0078748|alien",
+"1979|ALIEN|tt0078748|alienç",
 "1979|Bear Island|tt0078836|bearisland",
 "1977|Star Wars: Episodio IV|tt0076759|starwars4|Una nueva esperanza",
 "Más viejas|Soylent Green|tt0070723|soylentgreen|(1973)",
@@ -568,6 +605,8 @@ var db=[
     document.getElementById('loading').classList.add("hidden");
     var oldy;var yadded=false;
     var r=db.map(m => {
+        var fav = m.indexOf('ç') > -1;
+        if (fav) { m=m.replace('ç',''); }
         m=m.split("|"); var p='';
         if((oldy!=m[0])||(modo==1)) {
             if (yadded) { p+='</div>'; }
@@ -578,7 +617,8 @@ var db=[
         } 
         p+='<a class="p" href="https://www.imdb.com/title/'+m[2]+'">';
         if (m.length==3) { m.push(m[1]); }
-        p+='<img src="img/'+m[3].toLocaleLowerCase()+'.jpg">';
+        if (fav) { p+='<img class="sglogo" src="assets/sglogo.png">'; }
+        p+='<img class="img" src="img/'+m[3].toLocaleLowerCase()+'.jpg">';
         p+='<div>'+m[1].toLocaleUpperCase()+'</div>';
         if (m.length==5) { p+='<div>'+m[4]+'</div>'; }
         p+='</a>';
