@@ -12,7 +12,7 @@
     * { transition: all 0.6s 0s; }
     @keyframes huerotator1 {0% {filter: hue-rotate(0deg);}100% {filter: hue-rotate(360deg);}}
     .huerotator { animation: huerotator1 10s linear 1s infinite normal;}
-    .blurin {animation:ablurin 0.6s;}@keyframes ablurin{from{filter:blur(100px);} to{filter:blur(0px);}}
+    .blurin {animation:ablurin 1s;}@keyframes ablurin{from{filter:blur(100px);} to{filter:blur(0px);}}
     @keyframes kfantit{from{filter:blur(100px); transform: scale(1.5);} to{filter:blur(0px); transform: scale(1);}}
     .opacity-in{animation:opac-in 0.8s;}@keyframes opac-in{0%{opacity:0.1} 100%{opacity:1;}}
     .hidden {display: none; }
@@ -24,7 +24,6 @@
         overflow-x: hidden;
         font-family: sans-serif;
     }
-
     #rmk{ 
         color:#f5deb3;
         font-family: verdana;
@@ -40,7 +39,8 @@
         margin-left: auto;
         margin-right: auto;
     }
-    .yblock { margin-bottom: 1em; }    
+    /* #movies {display: flex; flex-direction: row; flex-wrap: wrap;justify-content: space-evenly;} */
+    .yblock { margin-bottom: 2em; }    
     .yblock:hover .ytitle {
         color: #d28f17;
     }
@@ -63,11 +63,6 @@
         box-shadow: 0 2px 3px #000;
         font-weight: 600;
     }
-    .p {
-        text-align: center;
-        display: inline-block;
-        margin: 1em;
-    }
     .p:hover { transform: scale(1.05); }  
     a.p { 
         text-decoration: none;
@@ -82,6 +77,9 @@
         flex-direction: column;
         align-items: center;
         align-content: center;
+        text-align: center;
+        padding: 0 10px;
+        margin-top: 1em;
     }
     @keyframes fwidth-in{0%{max-width: 10px;} 100%{max-width: 195px;}}
     a.p:hover div:nth-child(2) {
@@ -98,7 +96,7 @@
     .p img {
         box-shadow: 0 0 12px -2px #243d85;
         border: 1px solid #002f65;
-        width: 194px;
+        width: 192px;
         /* height: 288px; */
     }
     .p:hover img {
@@ -183,8 +181,8 @@
 
     #movies.pornombre div.yblock {
         margin-bottom: unset;
+        margin-top: 1.2em;
         display: inline-block;
-        position: relative;
     }
     #movies.pornombre div.ytitle {
         font-size: 1.5rem;
@@ -209,6 +207,7 @@
     .bc:hover {
         background-color: #6e94d0;
         color: #000000;
+        box-shadow: 0 0px 2px 2px #000, 0 2px 2px 1px #758ab2;
     }
 
 </style>
