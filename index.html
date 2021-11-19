@@ -47,7 +47,9 @@
     }
     .ytitle {
         font-size: 2em;
-        font-family: fantasy;
+        /* font-family: fantasy; */
+        font-family: system-ui;
+        font-weight: bolder;
         filter: drop-shadow(5px 4px 2px #000F) drop-shadow(0px 0px 10px #08F8);
         letter-spacing: 2px;
         margin-bottom: .15em;
@@ -192,8 +194,13 @@
             animation: kfantit 0.6s;
             background: url(assets/title.png) center top no-repeat;
             height: 132px;
-            background-size: contain;
-            margin: 0px -60px -40px -40px;
+            /* background-size: contain; */
+            /* margin: 0px -60px -40px -40px; */
+            overflow: hidden;
+            background-size: 126vw;
+            background-position-x: -11vw;
+            max-width: 99vw;
+            margin: 0 0 -40px 0;            
         }
         .p .img {
             width: 40vw;
@@ -371,7 +378,7 @@ var db=[
 "2005|The Skeleton Key|tt0397101|skeletonkey",
 "2005|El exorcismo de Emily Rose|tt0404032|emilyrose",
 "2005|Constantine|tt0360486",
-"2005|fragiles|tt0422272",
+"2005|Fragiles|tt0422272",
 "2005|Doom|tt0419706",
 "2005|Mirrormask|tt0366780",
 "2005|Kingdom of Heaven|tt0320661|koheaven",
@@ -547,7 +554,7 @@ var db=[
 "1986|La mosca|tt0091064|thefly",
 "1986|Highlander|tt0091203",
 "1986|Top Gun|tt0092099|topgun",
-"1986|fx|tt0089118",
+"1986|Fx|tt0089118",
 "1986|Big Trouble in Little China|tt0090728|rescateenelbarrio",
 "1986|Laberinto|tt0091369",
 "1985|The Goonies|tt0089218|thegoonies",
