@@ -358,11 +358,12 @@ var db=[
 "2010|The Crazies|tt0455407|thecrazies",
 "2009|ARRASTRAME AL INFIERNO|ARRASTRAME AL INFIERNO|dragmetohell",
 "2009|Avatar|tt0499549|avatar",
-"2009|BASTARDOS SIN GLORIA|tt0361748|ingloriousbast",
+"2009|Bastardos sin gloria|tt0361748|ingloriousbast",
+"2009|Moon|tt1182345",
 "2009|Cargo|tt0381940",
 "2009|Coraline|tt0327597ç",
 "2009|La huérfana|tt1148204|lahuerfana",
-"2009|WATCHMEN|tt0409459|watchmen",
+"2009|Watchmen|tt0409459|watchmen",
 "2009|Pandorum|tt1188729|pandorum",
 "2008|City of Ember|tt0970411|cityofember",
 "2008|Cloverfield|tt1060277|cloverfield",
@@ -385,6 +386,7 @@ var db=[
 "2007|Soy leyenda|tt0480249|imlegend",
 "2007|Stardust|tt0486655",
 "2007|The Deaths of Ian Stone|tt0810823|ianstone",
+"2007|Next|tt0435705",
 "2007|rec|tt1038988",
 "2007|Shrek 3|tt0413267|shrek3",
 "2006|EL LABERINTO DEL FAUNO|tt0457430|ellaberintodelfç",
@@ -402,6 +404,7 @@ var db=[
 "2006|The Fall|tt0460791|thefallç",
 "2005|THE HITCHHIKER'S GUIDE TO THE GALAXY|tt0371724|hitchiker",
 "2005|Aeon Flux|tt0402022|aeonflux",
+"2005|Brothers Grimm|tt0355295|brothersgrimm",
 "2005|The Skeleton Key|tt0397101|skeletonkey",
 "2005|El exorcismo de Emily Rose|tt0404032|emilyrose",
 "2005|Constantine|tt0360486",
@@ -501,6 +504,7 @@ var db=[
 "1998|Disturbing Behavior|tt0134619|disturbingbehavior",
 "1998|Fallen|tt0119099",
 "1998|Rescatando al soldado Ryan|tt0120815|savingryan",
+"1998|Deep Rising|tt0118956|deeprising",
 "1998|Deep Impact|tt0120647|deepimpact",
 "1998|El hombre de la máscara de hierro|tt0120744|ironmask",
 "1998|Lost in Space|tt0120738|lostinspace",
@@ -528,6 +532,7 @@ var db=[
 "1996|Multiplicity|tt0117108",
 "1996|Muertos de miedo|tt0116365|muertosdemiedo",
 "1995|WATERWORLD|tt0114898|waterworld",
+"1995|Strange days|tt0114558|strangedays",
 "1995|Seven|tt0114369|seven|(Pecados Capitales)",
 "1995|Jumanji|tt0113497",
 "1995|A little princess|tt0113670|littleprincess",
@@ -662,7 +667,8 @@ var db=[
         p+='<a class="p" href="https://www.imdb.com/title/'+m[2]+'">';
         if (m.length==3) { m.push(m[1]); }
         if (fav) { p+='<img class="sglogo" src="assets/sglogo.png">'; }
-        p+='<img class="img" src="img/'+m[3].toLocaleLowerCase()+'.jpg">';
+        m[3]=m[3].replace(/\s+/g, '').toLocaleLowerCase();
+        p+='<img class="img" src="img/'+m[3]+'.jpg">';
         p+='<div>'+m[1].toLocaleUpperCase()+'</div>';
         if (m.length==5) { p+='<div>'+m[4]+'</div>'; }
         p+='</a>';
